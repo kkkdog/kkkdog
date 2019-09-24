@@ -1,7 +1,7 @@
 #' To make a spline plot
 #'
-#' This function returns a spline plot with confidence interval. This function based on basic plot, so a lot of parameters
-#' can be change. Be aware that not all elements are needed. The priciple of graphic is as simple as possible.
+#' This function returns a spline plot with confidence interval. This function is based on the basic plot, so a lot of parameters
+#' can be changed. Be aware that not all elements are needed. The priciple of graphic is as simple as possible.
 #'
 #' @inheritParams PlotSpline
 #' @return A smoothed plot with confidence interval
