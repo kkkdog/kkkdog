@@ -17,7 +17,7 @@ PlotPatrial(data, xlim = range(data$PatrialData$x),
 
 \item{log, }{which axis needs the log scale, defaulted as "", if "x", the x axis scaled; if "xy", both scaled}
 
-\item{shadow, }{logical, whether is 95% sample areas should be maked as a shadowed rectangle}
+\item{shadow, }{logical, whether 0.95 sample areas should be maked as a shadowed rectangle}
 
 \item{shadow.col}{the color of the shadow}
 
