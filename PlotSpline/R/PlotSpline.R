@@ -25,7 +25,7 @@
 #' PlotSpline(temp,col.CI=rgb(70,130,180,maxColorValue = 255),xlab="X",ylab="y")
 
 PlotSpline<-function(SpList,cex=1,xlab=SpList$LabelX,ylab=SpList$LabelY,log="",points=TRUE,col.CI="royalblue4",xlim=range(SpList$xin),
-                     ylim=range(SpList$yin),col.shadow=rgb(215,215,215,maxColorValue = 255),shadow=TRUE,tick.length=0.03,tick=TRUE){
+                     ylim=range(SpList$yin),col.shadow=rgb(215,215,215,maxColorValue = 255),shadow=FALSE,tick.length=0.03,tick=TRUE){
   plot.new()
   plot.window(xlim=xlim,ylim=ylim,log=log)
   axis(1)
