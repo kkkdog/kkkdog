@@ -53,7 +53,7 @@ library(mfp)
 re<-mfp(z~fp(x,4)+fp(y,4))
 re0<-RePatrial("y",re)
 PlotPatrial(re0,shadow=FALSE)
-PlotPatrial("x",re,shadow=FALSE)
+PlotPatrial(re,"x",shadow=FALSE)
 
 }
 \seealso{
