@@ -34,6 +34,8 @@ PlotPatrial<-function(data,var="",xlim=range(data$PatrialData$x), ylim=range(dat
                       l.lty="solid",l.col="black",l.cex=1,
                       CI.border=NA,CI.col="grey"){
   
+  data=data
+  
   if("YesOrNO" %in% names(data)){data=data}else if(var==""){
     print("A variable need to be input here")
   }else{
