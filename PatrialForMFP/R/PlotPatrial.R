@@ -33,7 +33,7 @@ PlotPatrial<-function(var="",data, xlim=range(data$PatrialData$x), ylim=range(da
                       p.pch=1,p.col="black",p.cex=1,
                       l.lty="solid",l.col="black",l.cex=1,
                       CI.border=NA,CI.col="grey"){
-  if(var=""){data=data}else{data=RePatrial(var,data)}
+  if(var==""){data=data}else{data=RePatrial(var,data)}
   
   DataPlot<-data$PatrialData
 
