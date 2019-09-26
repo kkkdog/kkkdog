@@ -28,7 +28,7 @@
 #' PlotPatrial(re0,shadow=FALSE)
 #'
 #' @export
-PlotPatrial<-function(var=NULL,data, xlim=range(data$PatrialData$x), ylim=range(data$PatrialData$pa),log="",
+PlotPatrial<-function(data,var=NULL,xlim=range(data$PatrialData$x), ylim=range(data$PatrialData$pa),log="",
                       shadow=TRUE,shadow.col=rgb(215,215,215,maxColorValue = 255),
                       p.pch=1,p.col="black",p.cex=1,
                       l.lty="solid",l.col="black",l.cex=1,
