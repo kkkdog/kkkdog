@@ -28,12 +28,14 @@
 #' PlotPatrial(re0,shadow=FALSE)
 #'
 #' @export
-PlotPatrial<-function(var="",data, xlim=range(data$PatrialData$x), ylim=range(data$PatrialData$pa),log="",
+PlotPatrial<-function(var=NULL,data, xlim=range(data$PatrialData$x), ylim=range(data$PatrialData$pa),log="",
                       shadow=TRUE,shadow.col=rgb(215,215,215,maxColorValue = 255),
                       p.pch=1,p.col="black",p.cex=1,
                       l.lty="solid",l.col="black",l.cex=1,
                       CI.border=NA,CI.col="grey"){
-  if(var==""){data=data}else{data=RePatrial(var,data)}
+  
+  if("YesOrNO" %in% names(data){data=data}else if(var=NULL){print("A variable need to be input here, e.g. var="x"")}else{
+    data=RePatrial(var,data)}
   
   DataPlot<-data$PatrialData
 
