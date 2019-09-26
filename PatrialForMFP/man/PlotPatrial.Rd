@@ -11,7 +11,7 @@ PlotPatrial(data, xlim = range(data$PatrialData$x),
   l.cex = 1, CI.border = NA, CI.col = "grey")
 }
 \arguments{
-\item{data}{results obtained from the RePatrial()}
+\item{data}{results obtained from the RePatrial() or results of mfp and a variable}
 
 \item{xlim, ylim}{ranges of x axis and y axis, defaulted as the range of x and y.}
 
@@ -44,6 +44,7 @@ A patrial plot with confidence interval
 This function returns with a nice patrial plot with confidence interval using the results from RePatrial()
 }
 \examples{
+  
 x<-runif(100,0,10)
 y<-runif(100,0,10)
 z=log(x)+0.2*y^2 + rnorm(100,0,2)
