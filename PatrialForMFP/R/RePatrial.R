@@ -92,6 +92,6 @@ RePatrial<-function(var,data){
     pa_p_upper=pa_p+1.96*CI
     DataX<-data$X[,var]
     ord=order(DataX,decreasing = FALSE)
-    return(list(YesOrNO=(var %in% Formu0$B_C$C),var=var,PatrialData=data.frame(pa=pa[ord],pa_p=pa_p[ord],pa_p_lower=pa_p_lower[ord],pa_p_upper=pa_p_upper[ord],x=DataX[ord]),lm=re))
+    return(list(YesOrNO=(var %in% Formu0$B_C$C), C=Formu0$B_C$C,var=var,PatrialData=data.frame(pa=pa[ord],pa_p=pa_p[ord],pa_p_lower=pa_p_lower[ord],pa_p_upper=pa_p_upper[ord],x=DataX[ord]),lm=re))
   }
 }
