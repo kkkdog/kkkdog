@@ -34,7 +34,7 @@ PlotPatrial<-function(var=NULL,data, xlim=range(data$PatrialData$x), ylim=range(
                       l.lty="solid",l.col="black",l.cex=1,
                       CI.border=NA,CI.col="grey"){
   
-  if("YesOrNO" %in% names(data){data=data}else if(var=NULL){print("A variable need to be input here, e.g. var="x"")}else{
+  if("YesOrNO" %in% names(data)){data=data}else if(var=NULL){print("A variable need to be input here, e.g. var="x"")}else{
     data=RePatrial(var,data)}
   
   DataPlot<-data$PatrialData
