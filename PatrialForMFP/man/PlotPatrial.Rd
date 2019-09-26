@@ -19,7 +19,7 @@ PlotPatrial(data, xlim = range(data$PatrialData$x),
 
 \item{shadow, }{logical, whether is 95% sample areas should be maked as a shadowed rectangle}
 
-\item{shadow.col}{the color of the shadow, defaulted as rgb(215,215,215,maxColorValue = 255)}
+\item{shadow.col}{the color of the shadow}
 
 \item{p.pch}{character of the points, defaulted as 1}
 
