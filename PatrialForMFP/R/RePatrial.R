@@ -77,7 +77,7 @@ RePatrial<-function(var,data){
     temp<-coef(re)[-1]
     temp<-t(temp*t(DataRe[,names(temp)]))
     Pacom=coef(re)[1]+residuals(re)
-    M<-c(grep(paste0(var,"/"),colnames(temp)),grep(paste0(var,")"),colnames(temp)))
+    M<-c(grep(paste0(var,"/"),colnames(temp)),grep(paste0(var,")"),colnames(temp)),grep(paste0(var," +"),colnames(temp)))
     pa=Pacom+apply(as.data.frame(temp[,M]),1,sum)
     pa_p=coef(re)[1]+apply(as.data.frame(temp[,M]),1,sum)
     N=M+1
@@ -92,6 +92,8 @@ RePatrial<-function(var,data){
     pa_p_upper=pa_p+1.96*CI
     DataX<-data$X[,var]
     ord=order(DataX,decreasing = FALSE)
-    return(list(YesOrNO=(var %in% Formu0$B_C$C), ConVar=Formu0$B_C$C, var=var,PatrialData=data.frame(pa=pa[ord],pa_p=pa_p[ord],pa_p_lower=pa_p_lower[ord],pa_p_upper=pa_p_upper[ord],x=DataX[ord]),lm=re))
+    sig.var<-rownames(re0$trafo)[!is.na(re0$trafo)]
+    ConVar=sig.var[sig.var %in% Formu0$B_C$C]
+    return(list(YesOrNO=(var %in% Formu0$B_C$C), ConVar=ConVar, var=var,PatrialData=data.frame(pa=pa[ord],pa_p=pa_p[ord],pa_p_lower=pa_p_lower[ord],pa_p_upper=pa_p_upper[ord],x=DataX[ord]),lm=re))
   }
 }
