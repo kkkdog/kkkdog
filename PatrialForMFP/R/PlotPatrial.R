@@ -40,8 +40,8 @@ PlotPatrial<-function(data,var="",xlim=range(data$PatrialData$x), ylim=range(dat
   if(var==""){var=data$VarCon}else(var=var}
                                    
   DataPlot<-data$PatrialData
-
-  if(data$YesOrNO){
+  
+  for()
     plot.new()
     plot.window(xlim=xlim,ylim=ylim,log=log)
     axis(1)
@@ -53,5 +53,5 @@ PlotPatrial<-function(data,var="",xlim=range(data$PatrialData$x), ylim=range(dat
     lines(pa_p~x,data=DataPlot,lty=l.lty,cex=l.cex,col=l.col)
     points(pa~x,cex=p.cex,data=DataPlot,pch=p.pch,col=p.col)}else{
       print("Patrial plot is not available")
-    }
+
 }
