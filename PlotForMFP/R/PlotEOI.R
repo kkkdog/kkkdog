@@ -36,9 +36,8 @@ PlotEOI<-function(data,SampleName="",ylim=c(),xlim=c(),CI.border=NA,CI.color="gr
   axis(1)
   axis(2)
   box()
+  points(RStudent~Leverage,data=DataPlot,ylim=ylim,xlim=xlim)
   title(xlab="Hat values",ylab="Studentized Residuals",line=2,cex.main = 2,cex.sub = 0.75)
-
-  plot(RStudent~Leverage,data=DataPlot,ylim=ylim,xlim=xlim)
   ##add smooth spline with interval
   temp<-predict(loess(RStudent~Leverage, data=DataPlot), se=T)
   temp<-data.frame(Leverage=DataPlot$Leverage,fit=temp$fit,Upper=temp$fit+2*temp$se.fit,Lower=temp$fit-2*temp$se.fit)
@@ -54,9 +53,9 @@ PlotEOI<-function(data,SampleName="",ylim=c(),xlim=c(),CI.border=NA,CI.color="gr
   abline(v=CutOff.Lev,lty=Lev.lty,col=Lev.col,cex=Lev.cex)
   abline(h=CutOff.RS,lty=RS.lty,col=RS.col,cex=RS.cex)
   abline(h=-CutOff.RS,lty=RS.lty,col=RS.col,cex=RS.cex)
-  mtext(text=CutOff.Lev,side=1,line=1,at=c(CutOff.Lev))
-  mtext(text=CutOff.RS,side=2,line=1,at=c(CutOff.RS))
-  mtext(text=paste0("-",CutOff.RS),side=2,line=1,at=c(-CutOff.RS))
+  mtext(text=CutOff.Lev,side=1,line=1,at=c(CutOff.Lev),cex=0.5)
+  mtext(text=CutOff.RS,side=2,line=1,at=c(CutOff.RS),cex=0.5)
+  mtext(text=paste0("-",CutOff.RS),side=2,line=1,at=c(-CutOff.RS),cex=0.5)
 
   #large hat values
   if(any(DataPlot$Leverage>CutOff.Lev)){
@@ -72,5 +71,5 @@ PlotEOI<-function(data,SampleName="",ylim=c(),xlim=c(),CI.border=NA,CI.color="gr
   text(RStudent~Leverage,labels=SampleName,data=DataPlot[which(DataPlot$CookD>CutOff.CookD),],cex=0.7,pos=4,offset=0.3)
   }
   ##
-  legend("topright",inset=0.03,legend=c("Influential observations"),pch=1,col=c("red"),cex=0.7,bg="white")
+  legend("topright",inset=0.03,legend=c("Influential observations"),pch=1,col=c("red"),cex=1,bg="white")
 }

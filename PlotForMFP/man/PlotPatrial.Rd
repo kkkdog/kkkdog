@@ -16,11 +16,11 @@ PlotPatrial(data, var = "", xlim = data$xlim, ylim = data$ylim,
 
 \item{xlim, ylim}{a list, defaulted as the range of x and y. to set them, using ylim=list(var1=c(1,10),...), where var1 is the variable in the final function}
 
-\item{xlab, ylab, }{a list, the labels of axis. To set it, using xlab=list(var1="name1",var2="name2",...)}
+\item{xlab, ylab}{a list, the labels of axis. To set it, using xlab=list(var1="name1",var2="name2",...)}
 
-\item{log, }{a list, which axis needs the log scale, defaulted as "", if "x", the x axis scaled; if "xy", both scaled. To set it, using log=list(var1="xy",var2="x",...)}
+\item{log}{a list, which axis needs the log scale, defaulted as "", if "x", the x axis scaled; if "xy", both scaled. To set it, using log=list(var1="xy",var2="x",...)}
 
-\item{shadow, }{logical, whether is 95% sample areas should be maked as a shadowed rectangle}
+\item{shadow}{logical, whether is 95% sample areas should be maked as a shadowed rectangle}
 
 \item{shadow.col}{the color of the shadow, defaulted as rgb(215,215,215,maxColorValue = 255)}
 

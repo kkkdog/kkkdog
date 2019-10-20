@@ -5,12 +5,18 @@
 \title{To make a spline plot}
 \usage{
 PlotSpline(data, x, y, alpha = 0.05, cv = TRUE, span = 0.75,
-  B = 100, m = 200, method = "loess", cex = 1, xlab = "",
-  ylab = "", log = "", points = TRUE, col.CI = "royalblue4",
-  xlim = "", ylim = "", col.shadow = rgb(215, 215, 215, maxColorValue
-  = 255), shadow = FALSE, tick.length = 0.03, tick = TRUE)
+  B = 100, m = 200, method = "loess", point = TRUE,
+  shadow = TRUE, tick = TRUE, window.p = list(), rect.p = list(),
+  title.p = list(), polygon.p = list(), line.p = list(),
+  abline.p = list(), point.p = list(), tick.p = list())
 }
 \arguments{
+\item{shadow}{logical, should be shadow be plotted?, default as TRUE}
+
+\item{tick}{logical, should be ticks be plotted? default as TRUE}
+
+\item{SpList}{list from FiitModel}
+
 \item{xlab, ylab}{the label of axis.}
 
 \item{log}{which axis need a log scale, e.g. "x","y","xy"}
@@ -23,13 +29,7 @@ PlotSpline(data, x, y, alpha = 0.05, cv = TRUE, span = 0.75,
 
 \item{col.shadow}{color of the shadow}
 
-\item{shadow}{logical, should be shadow be plotted?, default as TRUE}
-
 \item{tick.length}{the length of ticks,defaults as 0.03.}
-
-\item{tick}{logical, should be ticks be plotted? default as TRUE}
-
-\item{SpList}{list from FiitModel}
 }
 \value{
 A smoothed plot with confidence interval

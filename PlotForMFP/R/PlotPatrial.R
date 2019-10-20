@@ -5,9 +5,9 @@
 #' @return A patrial plot with confidence interval
 #' @param data results obtained from the Patrial()
 #' @param xlim,ylim a list, defaulted as the range of x and y. to set them, using ylim=list(var1=c(1,10),...), where var1 is the variable in the final function
-#' @param log, a list, which axis needs the log scale, defaulted as "", if "x", the x axis scaled; if "xy", both scaled. To set it, using log=list(var1="xy",var2="x",...)
-#' @param xlab,ylab, a list, the labels of axis. To set it, using xlab=list(var1="name1",var2="name2",...)
-#' @param shadow, logical, whether is 95% sample areas should be maked as a shadowed rectangle
+#' @param log  a list, which axis needs the log scale, defaulted as "", if "x", the x axis scaled; if "xy", both scaled. To set it, using log=list(var1="xy",var2="x",...)
+#' @param xlab,ylab  a list, the labels of axis. To set it, using xlab=list(var1="name1",var2="name2",...)
+#' @param shadow logical, whether is 95% sample areas should be maked as a shadowed rectangle
 #' @param shadow.col the color of the shadow, defaulted as rgb(215,215,215,maxColorValue = 255)
 #' @param p.pch character of the points, defaulted as 1
 #' @param p.col color of the points, defaulted as "black"

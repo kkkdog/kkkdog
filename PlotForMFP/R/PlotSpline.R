@@ -24,30 +24,63 @@
 #' temp<-FitModel(data,x="x",y="y")
 #' PlotSpline(temp,col.CI=rgb(70,130,180,maxColorValue = 255),xlab="X",ylab="y")
 
-PlotSpline<-function(data,x,y,alpha=0.05,cv=TRUE,span=0.75,B=100,m=200,method="loess",cex=1,xlab="",ylab="",log="",points=TRUE,col.CI="royalblue4",xlim="",
-                     ylim="",col.shadow=rgb(215,215,215,maxColorValue = 255),shadow=FALSE,tick.length=0.03,tick=TRUE){
+
+PlotSpline<-function(data,x,y,alpha=0.05,cv=TRUE,span=0.75,B=100,m=200,method="loess",point=TRUE,shadow=TRUE,tick=TRUE,
+                     window.p=list(),rect.p=list(),title.p=list(),polygon.p=list(),line.p=list(),abline.p=list(),point.p=list(),
+                     tick.p=list()){
+
 
   if("PlotForMPF" %in% names(data)){data=data}else{data=FitSpline(data,x,y,alpha=0.05,cv=TRUE,span=0.75,B=100,m=200,method="loess")}
 
-  if(xlab==""){xlab=data$LabelX}
-  if(ylab==""){xlab=data$LabelY}
-  if(xlim==""){xlim=range(data$xin)}
-  if(ylim==""){ylim=range(data$yin)}
+  xlab=data$LabelX
+  ylab=data$LabelY
+  xlim=range(data$xin)
+  ylim=range(data$yin)
+
 
   plot.new()
-  plot.window(xlim=xlim,ylim=ylim,log=log)
+
+  window0<-list(xlim=xlim,ylim=ylim)
+  window1<-anchors::replace.list(window0,window.p)
+  do.call(plot.window,window1)
+
   axis(1)
   axis(2)
   box()
-  if(shadow==TRUE){rect(quantile(data$xin,probs=0.025),ylim[1], quantile(data$xin,probs=0.975), ylim[2], col=col.shadow,density=-80,border = NA)}
-  title(xlab=xlab,ylab=ylab,line=2)
-  polygon(c(data$x,rev(data$x)),c(data$Lower,rev(data$Upper)),col=col.CI,border=FALSE)
-  lines(data$Mean~data$x)
-  abline(h=0,lty="dashed")
-  if(points==TRUE){points(data$yin~data$xin,cex=cex)}
+
+  ylim<-window1$ylim
+  xlim<-window1$xlim
+  RectP<-list(xleft=quantile(data$xin,probs=0.025),ybottom=ylim[1], xright=quantile(data$xin,probs=0.975), ytop=ylim[2],col="blue")
+  RectP<-anchors::replace.list(RectP,rect.p)
+  if(shadow==TRUE){do.call(rect,RectP)}
+
+  titleP<-list(line=2,xlab=xlab,ylab=ylab)
+  titleP<-anchors::replace.list(titleP,title.p)
+  do.call(title,titleP)
+
+  polygonP<-list(x=c(data$x,rev(data$x)),y=c(data$Lower,rev(data$Upper)),col="red",border=FALSE)
+  polygonP<-anchors::replace.list(polygonP,polygon.p)
+  do.call(polygon,polygonP)
+
+  lineP<-list(x=data$Mean,y=data$x)
+  lineP<-anchors::replace.list(lineP,line.p)
+  do.call(lines,lineP)
+
+  ablineP<-list(h=0,lty="dashed")
+  ablineP<-anchors::replace.list(ablineP,abline.p)
+  do.call(abline,ablineP)
+
+  pointP<-list(x=data$xin,y=data$yin,type="p")
+  pointP<-anchors::replace.list(pointP,point.p)
+  if(point==TRUE){do.call(points,pointP)}
+
   if(tick==TRUE){for(i in data$xin){
+      tick.length=0.03
       tempx<-c(i,i)
       tempy<-c(ylim[1],ylim[1]+(ylim[2]-ylim[1])*tick.length)
-      lines(tempy~tempx,lwd=0.3)}
+      tempP<-list(x=tempx,y=tempy,lwd=0.3)
+      tempP<-anchors::replace.list(tempP,tick.p)
+      do.call(lines,tempP)
+      }
   }
-  }
+}
